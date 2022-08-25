@@ -1,3 +1,4 @@
+import { CartWidget } from '../CartWidget/CartWidget';
 import './styles.css'
 
  export const Navbar = () => {
@@ -17,6 +18,7 @@ import './styles.css'
                     <a href="#" className='nav__link'>Contacto</a>
                 </li>
             </ul>
+            <CartWidget numberItems={0}/>
         </nav>
     </header>
   )
