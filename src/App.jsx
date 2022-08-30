@@ -5,7 +5,7 @@ export const App = () => {
   return (
     <>
       <Navbar />
-      <ItemListContainer dateStart="16/08/2022" dateEnd="19/10/2022"/>
+      <ItemListContainer title="Sitio en Construcción"/>
     </>
   );
 };
