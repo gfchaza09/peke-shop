@@ -7,7 +7,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #FF656B;
+    background-color: var(--global-primary-color);
 }
 
 .header__img {
@@ -27,6 +27,7 @@
     justify-content: space-between;
     align-items: center;
     list-style: none;
+    gap: .8rem;
 }
 
 .nav__item {

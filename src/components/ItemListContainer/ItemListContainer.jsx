@@ -1,26 +1,31 @@
-import { useState } from 'react';
-import { ItemCount } from '../ItemCount/ItemCount';
+import { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton';
+
+import { ItemList } from '../ItemList/ItemList';
+
 import './styles.css';
+import "react-loading-skeleton/dist/skeleton.css";
 
-export const ItemListContainer = ({title}) => {
+import { dataDB } from '../../data/data';
+import { customFetch } from '../../utils/customFetch';
 
-  const [itemCount, setItemCount] = useState(1);
+export const ItemListContainer = () => {
 
-  const handleAddItem = (e) => {
-    if (e.target.textContent === '+') {
-      setItemCount(itemCount + 1);
-    } else {
-      setItemCount(itemCount - 1);
-    }
-  };
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    customFetch(2000, dataDB)
+      .then(data => setItems(dataDB))
+      .catch(err => console.log(err))
+  }, []);
 
   return (
     <div className='container'>
-        <h1>{title}</h1>
+        <h1>Productos</h1>
         <div className='card__container'>
-          <h2>Card de ejemplo</h2>
-          <ItemCount stock={10} initial={itemCount} onAdd={handleAddItem}/>
-          <button>Agregar al carrito</button>
+          {
+            items?.length !==0 ? <ItemList items={items}/> : <Skeleton count={5} height={100} width={300}/>
+          }
         </div>
     </div>
   )

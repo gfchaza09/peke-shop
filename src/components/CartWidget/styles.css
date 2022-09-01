@@ -9,6 +9,7 @@
     cursor: pointer;
     position: relative;
     font-size: 1.4rem;
+    transition: all .5s linear;
 }
 
 .button__cart:hover {

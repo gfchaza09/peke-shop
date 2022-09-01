@@ -3,15 +3,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    min-height: 80vh;
+    margin-top: 200px;
 }
 
 .card__container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: #cccbcb;
     padding: 1rem;
-    gap: .75rem
+    gap: .75rem;
+    width: 90%;
+    min-height: 70vh;
 }
