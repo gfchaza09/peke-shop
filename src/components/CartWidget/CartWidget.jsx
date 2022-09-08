@@ -1,6 +1,6 @@
 import {IoCart} from 'react-icons/io5';
 
-import './styles.css'
+import './CartWidget.styles.css'
 
 export const CartWidget = ({numberItems}) => {
   return (

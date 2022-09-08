@@ -1,0 +1,116 @@
+.item__detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.item__detail--img {
+    width: 350px;
+    position: absolute;
+    left: -50px;
+    top: 60px;
+    border-radius: .5rem;
+    filter: saturate(120%) contrast(110%) drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
+    user-select: none;
+}
+
+.item__detail--data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 0rem 0rem 20rem;
+    height: 400px;
+    gap: .7rem
+}
+
+.item__detail--title {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.item__detail--price {
+    color: #ff898d;
+    font-size: 2.9em;
+}
+
+.item__detail--description {
+    letter-spacing: .5px;
+}
+
+.item__detail--btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.item__detail--btn {
+    padding: 1rem;
+    border-radius: .5rem;
+    border: none;
+    cursor: pointer;
+    font-size: .9rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    background-color: #ff898d;
+    box-shadow: 2px 2px 25px -7px #4c4c4c;
+}
+
+.item__detail--btn:active {
+    transform: scale(0.97);
+}
+
+@media screen and (max-width: 810px) {
+    .item__detail {
+        flex-direction: column;
+    }
+
+    .item__detail--img {
+        position: initial;
+        margin: 0 auto;
+    }
+
+    .item__detail--data {
+        padding: 2rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .item__detail {
+        padding: 2rem 1rem;
+    }
+
+    .item__detail--img {
+        width: 275px;
+    }
+
+    .item__detail--btns {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    .item__detail--img {
+        width: 225px;
+    }
+
+    .item__detail--data {
+        padding: 2rem 1rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+    .item__detail {
+        padding: 2rem .75rem;
+    }
+
+    .item__detail--data {
+        padding: 2rem .75rem;
+    }
+}

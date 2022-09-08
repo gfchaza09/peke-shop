@@ -23,3 +23,7 @@
 .btn__container:hover {
     background-color: #a5a1a169;
 }
+
+.btn__container:active {
+    transform: scale(0.97);
+}

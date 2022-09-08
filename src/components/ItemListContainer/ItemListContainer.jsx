@@ -1,30 +1,41 @@
 import { useEffect, useState } from 'react';
-import Skeleton from 'react-loading-skeleton';
+import { useParams } from 'react-router-dom';
 
 import { ItemList } from '../ItemList/ItemList';
 
-import './styles.css';
-import "react-loading-skeleton/dist/skeleton.css";
-
 import { dataDB } from '../../data/data';
 import { customFetch } from '../../utils/customFetch';
+
+import './ItemListContainer.styles.css';
 
 export const ItemListContainer = () => {
 
   const [items, setItems] = useState([]);
 
+  const { idCategory } = useParams()
+
   useEffect(() => {
-    customFetch(2000, dataDB)
-      .then(data => setItems(dataDB))
-      .catch(err => console.log(err))
-  }, []);
+    if (idCategory) {
+      customFetch(2000, dataDB.filter(item => {
+        if (idCategory === undefined) return item;
+        return idCategory === item.categoryId;
+      }))
+        .then(data => setItems(data))
+        .catch(err => console.log(err))
+    } else {
+      customFetch(2000, dataDB)
+        .then(data => setItems(data))
+        .catch(err => console.log(err))
+    }
+
+  }, [idCategory]);
 
   return (
     <div className='container'>
-        <h1>Productos</h1>
+        <h1>{idCategory ? idCategory.toUpperCase() : "PRODUCTOS"}</h1>
         <div className='card__container'>
           {
-            items?.length !==0 ? <ItemList items={items}/> : <Skeleton count={5} height={100} width={300}/>
+            items?.length !==0 ? <ItemList items={items}/> : <div className='spinner'></div>
           }
         </div>
     </div>

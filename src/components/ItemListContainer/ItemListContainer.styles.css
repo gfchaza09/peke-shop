@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    max-width: 1240px;
+    margin: 200px auto 0px;
+}
+
+.card__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1.5rem;
+    width: 90%;
+    min-height: 70vh;
+}
+
+.spinner {
+    width: 100px;
+    height: 100px;
+    animation: Morph 2000ms infinite;
+}
+
+@keyframes Morph {
+    0%,
+    100% {
+        border-radius: 50%;
+        transform: rotate(0deg);
+        background-color: #ffc0cb;
+    }
+    50% {
+        border-radius: 0%;
+        transform: rotate(180deg);
+        background-color: #add8e6;
+    }
+}
