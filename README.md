@@ -88,7 +88,7 @@ Gabriel Chazarreta | FrontEnd Developer
 |Twittter |[GabrielChaza9](https://twitter.com/GabrielChaza9) |
 |Portfolio |[Link](https://portfolio-gfchaza.netlify.app/)|
 
-<a name="deploy-es"></a>
+<a name="deploy-en"></a>
 
 ## 4. Deploy
 

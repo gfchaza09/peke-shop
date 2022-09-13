@@ -96,7 +96,7 @@ export const dataDB = [
     pictureUrl: "https://i.ibb.co/tqG6swS/producto10.jpg",
     description:
       "lorem ipsum dolor sit amet, const lorem ipsum dolor sit amet, const lorem ipsum dolor sit amet, const lorem ipsum dolor sit amet, const",
-    stock: 10,
+    stock: 0,
     categoryId: "fundas",
   },
   {

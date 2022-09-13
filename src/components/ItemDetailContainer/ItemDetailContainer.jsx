@@ -30,7 +30,7 @@ export const ItemDetailContainer = () => {
         <div className='link__back'>
           <IoArrowBack size={25} onClick={() => navigate(-1)}/>
         </div>
-        <h1 className='headline__title'>PRODUCTOS</h1>
+        <h1 className='headline__title'>{item?.categoryId?.toUpperCase()}</h1>
       </div>
         <>
           {
