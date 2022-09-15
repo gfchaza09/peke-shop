@@ -1,17 +1,19 @@
 .item__container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     background-color: #ff898d;
     border-radius: 1rem;
     box-shadow: -11px 11px 1px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
+    min-height: 400px;
 }
 
 .item__img {
     width: 250px;
+    max-height: 250px;
+    object-fit: cover;
     border-radius: .8rem;
 }
 
