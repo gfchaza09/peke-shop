@@ -12,7 +12,7 @@ const CartContextProvider = ({children}) => {
     const addItem = (item, quantity) => {
         if (isInCart(item.id)) {
             const repeat = cartList.find(product => product.id === item.id);
-            // Luego de almacenar el producto en una variable, revisamos si la cantidad de stock es suficiente
+            // Luego de almacenar el producto en la variable repeat, revisamos si la cantidad de stock es suficiente
             if ((repeat.quantity + quantity)> item.stock) {
                 alert('El stock del producto no es suficiente, revisa tu carrito.')
                 return;
@@ -34,8 +34,18 @@ const CartContextProvider = ({children}) => {
         setCartList([]);
     };
 
+    const calcItemsQty = () => {
+        const quantity = cartList.map(product => product.quantity);
+        return quantity.reduce((prevValue, currentValue) => prevValue + currentValue, 0);
+    }
+
+    const calcItemsTotal = () => {
+        const quantity = cartList.map(product => product.quantity*product.price);
+        return quantity.reduce((prevValue, currentValue) => prevValue + currentValue, 0).toFixed(2);
+    }
+
     return (
-        <CartContext.Provider value={{cartList, addItem, removeItem, clear}}>
+        <CartContext.Provider value={{cartList, addItem, removeItem, clear, calcItemsQty, calcItemsTotal}}>
             {children}
         </CartContext.Provider>
     );

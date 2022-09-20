@@ -23,7 +23,7 @@ export const ItemDetail = ({item}) => {
         <img className='item__detail--img' src={item.pictureUrl} alt={item.title}/>
         <div className='item__detail--data'>
             <h2 className='item__detail--title'>{item.title}</h2>
-            <p className='item__detail--price'>{item.price}</p>
+            <p className='item__detail--price'>$ {item.price.toFixed(2)}</p>
             <p className='item__detail--description'>{item.description}</p>
             <div className='item__detail--btns'>
               {

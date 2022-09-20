@@ -47,7 +47,6 @@ import './Navbar.styles.css'
         <NavLink to="/"><img src='https://i.ibb.co/qYZ7m6X/peke-logo.jpg' alt="logo" className='header__img'/></NavLink>
         <nav className={`nav ${menuOpen ?  "is-menu" : ""}`}>
             <ul className='nav__list'>
-                {/* Se reemplazará las etiquetas a por Link de React Router */}
                 <li className='nav__item'>
                     <NavLink to="category/individuales" className='nav__link' onClick={handleMenuClose}>Individuales</NavLink>
                 </li>
@@ -58,7 +57,7 @@ import './Navbar.styles.css'
                     <NavLink to="category/amigurumis" className='nav__link' onClick={handleMenuClose}>Amigurumis</NavLink>
                 </li>
             </ul>
-            <CartWidget numberItems={0}/>
+            <CartWidget />
         </nav>
         <div className='header-content--toggle'>
               {

@@ -14,9 +14,9 @@ export const Item = ({item}) => {
         </Link>
         <div className='item__data--container'>
           <h2>{item.title}</h2>
-          <p className='item__price'>{item.price}</p>
+          <p className='item__price'>$ {item.price.toFixed(2)}</p>
           <div className='container__btn'>
-            <button className='item__btn add__btn'>{item.stock !== 0 ? "Agregar al carrito" : "Agotado"}</button>
+            <button className='item__btn add__btn'>{item.stock !== 0 ? "Disponible" : "Agotado"}</button>
           </div>
         </div>
     </div>

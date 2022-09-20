@@ -40,7 +40,7 @@
 
 .cart__container--list {
     display: flex;
-    flex-basis: 70%;
+    flex-basis: 75%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -80,6 +80,13 @@
 .cart__item--title {
     font-size: 2rem;
     font-weight: 700;
+}
+
+.cart__container--btns {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 1rem;
 }
 
 .cart__container--list > .cart__container--btn {
