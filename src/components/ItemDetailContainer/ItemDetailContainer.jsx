@@ -6,8 +6,9 @@ import Skeleton from 'react-loading-skeleton';
 import './ItemDetailContainer.styles.css';
 import "react-loading-skeleton/dist/skeleton.css";
 
-import { dataDB } from '../../data/data';
-import { customFetch } from '../../utils/customFetch';
+import { db } from '../../config/firebase';
+import { getDoc, doc } from 'firebase/firestore';
+
 import { ItemDetail } from '../ItemDetail/ItemDetail';
 
 export const ItemDetailContainer = () => {
@@ -18,10 +19,13 @@ export const ItemDetailContainer = () => {
 
   const navigate = useNavigate();
 
+  const getData = async ( idItem ) => {
+    const querySnapshot = await getDoc(doc(db,"products",idItem));
+    setItem({id: querySnapshot.id, ...querySnapshot.data()});
+  };
+
   useEffect(() => {
-    customFetch(2000, dataDB.find(item => item.id === parseInt(idItem)))
-      .then(data => setItem(data))
-      .catch(err => console.log(err))
+    getData(idItem);
   }, [idItem]);
 
   return (

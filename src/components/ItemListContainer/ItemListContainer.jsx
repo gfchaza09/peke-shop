@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import { ItemList } from '../ItemList/ItemList';
 
-import { dataDB } from '../../data/data';
-import { customFetch } from '../../utils/customFetch';
+import { db } from '../../config/firebase';
+import { getDocs, collection, query, where, orderBy } from 'firebase/firestore';
 
 import './ItemListContainer.styles.css';
 
@@ -15,26 +15,24 @@ export const ItemListContainer = () => {
 
   const { idCategory } = useParams()
 
-  useEffect(() => {
-    setisLoading(true);
+  const getData = async (idCategory) => {
+    let q;
     if (idCategory) {
-      customFetch(2000, dataDB.filter(item => {
-        if (idCategory === undefined) return item;
-        return idCategory === item.categoryId;
-      }))
-        .then(data => {
-          setItems(data);
-          setisLoading(false);
-        })
-        .catch(err => console.log(err))
+      q = query(collection(db,"products"), where('categoryId', '==', idCategory));
     } else {
-      customFetch(2000, dataDB)
-        .then(data => {
-          setItems(data);
-          setisLoading(false);
-        })
-        .catch(err => console.log(err))
+      q = query(collection(db, "products"),orderBy('title'));
     }
+    const querySnapshot = await getDocs(q);
+    const dataFromFirestore = querySnapshot.docs.map(item => ({
+      id: item.id,
+      ...item.data(),
+    }))
+    setItems(dataFromFirestore);
+    setisLoading(false);
+  }
+
+  useEffect(() => {
+    getData(idCategory);
   }, [idCategory]);
 
   return (
