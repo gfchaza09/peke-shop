@@ -1,6 +1,9 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { IoTrash, IoCart } from "react-icons/io5";
+import { collection, doc, increment, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
+
+import { db } from '../../config/firebase';
 
 import { CartContext } from '../context/CartContext';
 
@@ -9,6 +12,39 @@ import './Cart.styles.css';
 export const Cart = () => {
 
   const { cartList, clear, removeItem, calcItemsTotal } = useContext(CartContext);
+
+  const createOrder = async () => {
+    const itemsForDb = cartList.map(item => ({
+      id: item.id,
+      title: item.title,
+      price: item.price,
+      quantity: item.quantity,
+    }));
+    const order = {
+      buyer: {
+        name: "Leo Messi",
+        email: "leomessi@mail.com",
+        phone: "123-456-1234",
+      },
+      date: serverTimestamp(),
+      items: itemsForDb,
+      total: calcItemsTotal()
+    };
+    // Creamos el documento y la colección (si la colección ya existe, no la crea) en newOrderRef para que genere un id
+    const newOrderRef = doc(collection(db, "orders"))
+    await setDoc(newOrderRef, order);
+
+    alert(`El id de tu orden de compra es: ${newOrderRef.id}`)
+    clear();
+
+    itemsForDb.map(async (item) => {
+      const itemRef = doc(db, "products", item.id);
+      await updateDoc(itemRef, {
+        // Utilizamos la función propia de firestore increment para actualizar la cantidad de stock
+        stock: increment(-item.quantity)
+      });
+    })
+  };
 
   return (
     <div className='cart__container'>
@@ -37,7 +73,7 @@ export const Cart = () => {
               <h2>Total: $ {calcItemsTotal()}</h2>
             </div>
             <div className="cart__container--btns">
-              <button className="cart__container--btn">
+              <button className="cart__container--btn" onClick={createOrder}>
                 <IoCart size={16}/> <span>Finalizar compra</span>
               </button>
               <button className="cart__container--btn" onClick={clear}>
