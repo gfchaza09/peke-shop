@@ -1,7 +1,7 @@
 # Proyecto e-commerce
 
 <p align="center">
-  <img src="https://i.ibb.co/0rRG7cX/Prueba.gif" alt="gif" border="0">
+  <a href="https://ibb.co/fHzxg2S"><img src="https://i.ibb.co/0rRG7cX/Prueba.gif" alt="gif" border="0"></a>
 </p>
 
 [Español](#ES) - [English](#EN)
