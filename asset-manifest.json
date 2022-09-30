@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/peke-shop/static/css/main.f7a14707.css",
-    "main.js": "/peke-shop/static/js/main.71d789e8.js",
+    "main.css": "/peke-shop/static/css/main.1c6eb702.css",
+    "main.js": "/peke-shop/static/js/main.edc73ef3.js",
     "static/css/611.2f2f4ed8.chunk.css": "/peke-shop/static/css/611.2f2f4ed8.chunk.css",
-    "static/js/611.1fd551e0.chunk.js": "/peke-shop/static/js/611.1fd551e0.chunk.js",
+    "static/js/611.bb8bb5ef.chunk.js": "/peke-shop/static/js/611.bb8bb5ef.chunk.js",
     "static/js/787.dfd1fb1b.chunk.js": "/peke-shop/static/js/787.dfd1fb1b.chunk.js",
     "index.html": "/peke-shop/index.html",
-    "main.f7a14707.css.map": "/peke-shop/static/css/main.f7a14707.css.map",
-    "main.71d789e8.js.map": "/peke-shop/static/js/main.71d789e8.js.map",
+    "main.1c6eb702.css.map": "/peke-shop/static/css/main.1c6eb702.css.map",
+    "main.edc73ef3.js.map": "/peke-shop/static/js/main.edc73ef3.js.map",
     "611.2f2f4ed8.chunk.css.map": "/peke-shop/static/css/611.2f2f4ed8.chunk.css.map",
-    "611.1fd551e0.chunk.js.map": "/peke-shop/static/js/611.1fd551e0.chunk.js.map",
+    "611.bb8bb5ef.chunk.js.map": "/peke-shop/static/js/611.bb8bb5ef.chunk.js.map",
     "787.dfd1fb1b.chunk.js.map": "/peke-shop/static/js/787.dfd1fb1b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f7a14707.css",
-    "static/js/main.71d789e8.js"
+    "static/css/main.1c6eb702.css",
+    "static/js/main.edc73ef3.js"
   ]
 }

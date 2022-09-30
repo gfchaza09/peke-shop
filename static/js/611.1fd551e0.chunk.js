@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkpeke_shop=self.webpackChunkpeke_shop||[]).push([[611],{611:function(e,n,s){s.r(n),s.d(n,{default:function(){return c}});s(791);var r=s(504),i=s(184),c=function(){return(0,i.jsxs)("div",{className:"error",children:[(0,i.jsx)("h1",{children:"La p\xe1gina que buscas no existe"}),(0,i.jsx)(r.rU,{to:"/",children:"Volver al inicio"})]})}}}]);
-//# sourceMappingURL=611.1fd551e0.chunk.js.map
