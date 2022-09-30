@@ -26,7 +26,6 @@ const CartContextProvider = ({children}) => {
     };
 
     const removeItem = (id) => {
-        alert('Estas eliminando el producto del carrito');
         setCartList(cartList.filter(item => item.id !== id));
     };
 

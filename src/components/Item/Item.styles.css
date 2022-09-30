@@ -53,6 +53,8 @@
 .item__data--container {
     display: flex;
     flex-direction: column;
+    height: 200px;
+    justify-content: space-between;
     padding: 1rem;
     gap: .75rem;
 }
