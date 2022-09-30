@@ -26,11 +26,11 @@ export const ItemCount = ({stock = 0, initial = 1, handleAdd}) => {
     <>
       <div className="count__container">
         <button className='btn__container' onClick={handleDecrement} disabled={count <= 1}>
-          <IoRemoveCircleOutline />
+          <IoRemoveCircleOutline color='#fff'/>
         </button>
         <p>{count}</p>
         <button className='btn__container' onClick={handleIncrement} disabled={stock <= count}>
-          <IoAddCircleOutline />
+          <IoAddCircleOutline color='#fff' />
         </button>
       </div>
       <span>Unidades disponibles: {stock}</span>

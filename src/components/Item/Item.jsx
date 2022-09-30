@@ -13,10 +13,10 @@ export const Item = ({item}) => {
           <span className='item__icon--info'>Ver Detalles</span>
         </Link>
         <div className='item__data--container'>
-          <h2>{item.title}</h2>
+          <h2 className='item__title'>{item.title}</h2>
           <p className='item__price'>$ {item.price.toFixed(2)}</p>
           <div className='container__btn'>
-            <button className='item__btn add__btn'>{item.stock !== 0 ? "Disponible" : "Agotado"}</button>
+            <p className='item__label'>{item.stock !== 0 ? "Disponible" : "Agotado"}</p>
           </div>
         </div>
     </div>

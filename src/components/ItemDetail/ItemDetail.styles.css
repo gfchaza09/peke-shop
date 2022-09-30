@@ -21,7 +21,8 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 2rem 0rem 0rem 20rem;
-    height: 400px;
+    min-height: 400px;
+    height: auto;
     gap: .7rem
 }
 

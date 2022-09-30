@@ -3,11 +3,12 @@
     align-items: center;
     justify-content: space-between;
     width: 70%;
-    background-color: #c7c5c5;
-    border: 1px solid #a5a1a1;
+    background-color: #ff898d;
+    border: 1px solid #df9898;
     border-radius: .8rem;
     overflow: hidden;
-    padding: 0rem .75rem;
+    padding: 0.25rem .75rem;
+    color: #fff;
 }
 
 .btn__container {
@@ -21,7 +22,7 @@
 }
 
 .btn__container:hover {
-    background-color: #a5a1a169;
+    background-color: #e4a1a1da;
 }
 
 .btn__container:active {

@@ -7,7 +7,7 @@
     box-shadow: -11px 11px 1px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
-    min-height: 400px;
+    min-height: 450px;
 }
 
 .item__img {
@@ -15,6 +15,7 @@
     max-height: 250px;
     object-fit: cover;
     border-radius: .8rem;
+    user-select: none;
 }
 
 .item__icon--container {
@@ -56,6 +57,10 @@
     gap: .75rem;
 }
 
+.item__title {
+    inline-size: 210px;
+}
+
 .item__price {
     font-weight: bold;
     font-size: 1.25rem;
@@ -63,21 +68,17 @@
 
 .container__btn {
     display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
     gap: .7rem;
 }
 
-.item__btn {
+.item__label {
     padding: .7rem .5rem;
     border-radius: 10px;
-    color: #000;
-    text-decoration: none;
-    border: 1.5px solid #727272;
-    background-color: #ddd;
-    cursor: pointer;
-}
-
-.item__btn:active {
-    transform: scale(0.97);
+    color: #fff;
+    font-size: .8rem;
+    font-weight: 700;
+    border: 2px solid #fff;
+    user-select: none;
 }

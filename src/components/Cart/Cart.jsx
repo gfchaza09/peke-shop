@@ -3,9 +3,14 @@ import { Link } from 'react-router-dom';
 import { IoTrash, IoCart } from "react-icons/io5";
 import { collection, doc, increment, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore';
 
+import Swal from "sweetalert2";
+import withReactContent from 'sweetalert2-react-content'
+
 import { db } from '../../config/firebase';
 
 import { CartContext } from '../context/CartContext';
+
+import {CartForm} from '../CartForm/CartForm';
 
 import './Cart.styles.css';
 
@@ -13,28 +18,57 @@ export const Cart = () => {
 
   const { cartList, clear, removeItem, calcItemsTotal } = useContext(CartContext);
 
-  const createOrder = async () => {
+  const MySwal = withReactContent(Swal)
+
+  const showAlertSuccess = (orderId) => {
+    return new Promise((resolve, reject) => {
+      MySwal.fire({
+        icon: 'success',
+        title: '<h2>¡Compra exitosa!</h2>',
+        text: `El id de tu orden de compra es: ${orderId}`,
+        showCloseButton: true,
+        confirmButtonColor: '#ff898d'
+      })
+    })
+  }
+
+  const showCartForm = () => {
+    return new Promise((resolve, reject) => {
+      MySwal.fire({
+        title: "Formulario de compra",
+        html: (
+          <CartForm
+            onSubmit={values => {
+              resolve(values);
+              Swal.close();
+            }}
+            onCancel={() => Swal.close()}
+          />
+        ),
+        showConfirmButton: false
+      });
+    })
+  }
+
+  const createOrder = async (values) => {
     const itemsForDb = cartList.map(item => ({
       id: item.id,
       title: item.title,
       price: item.price,
       quantity: item.quantity,
     }));
+
     const order = {
-      buyer: {
-        name: "Leo Messi",
-        email: "leomessi@mail.com",
-        phone: "123-456-1234",
-      },
+      buyer: values,
       date: serverTimestamp(),
       items: itemsForDb,
       total: calcItemsTotal()
     };
+
     // Creamos el documento y la colección (si la colección ya existe, no la crea) en newOrderRef para que genere un id
     const newOrderRef = doc(collection(db, "orders"))
     await setDoc(newOrderRef, order);
 
-    alert(`El id de tu orden de compra es: ${newOrderRef.id}`)
     clear();
 
     itemsForDb.map(async (item) => {
@@ -44,7 +78,17 @@ export const Cart = () => {
         stock: increment(-item.quantity)
       });
     })
+
+    if (newOrderRef.id) showAlertSuccess(newOrderRef.id);
   };
+
+  const handleCart = () => {
+    showCartForm()
+      .then((values) => {
+      createOrder(values);
+    })
+      .catch(() => console.log("Modal cerrado"))
+  }
 
   return (
     <div className='cart__container'>
@@ -73,7 +117,7 @@ export const Cart = () => {
               <h2>Total: $ {calcItemsTotal()}</h2>
             </div>
             <div className="cart__container--btns">
-              <button className="cart__container--btn" onClick={createOrder}>
+              <button className="cart__container--btn" onClick={handleCart}>
                 <IoCart size={16}/> <span>Finalizar compra</span>
               </button>
               <button className="cart__container--btn" onClick={clear}>

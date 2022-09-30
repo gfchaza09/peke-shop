@@ -7,6 +7,7 @@ import { db } from '../../config/firebase';
 import { getDocs, collection, query, where, orderBy } from 'firebase/firestore';
 
 import './ItemListContainer.styles.css';
+import { Sidebar } from '../Sidebar/Sidebar';
 
 export const ItemListContainer = () => {
 
@@ -43,6 +44,7 @@ export const ItemListContainer = () => {
             items && isLoading ? <div className='spinner'></div> : <ItemList items={items}/>
           }
         </div>
+        <Sidebar />
     </div>
   )
 };
