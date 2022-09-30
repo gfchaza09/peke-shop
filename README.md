@@ -1,6 +1,8 @@
 # Proyecto e-commerce
 
-![me](https://ibb.co/QMVZD0p.gif)
+<p align="center">
+  <img src="https://ibb.co/QMVZD0p.gif" alt="animated" />
+</p>
 
 [Español](#ES) - [English](#EN)
 
