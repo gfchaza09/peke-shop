@@ -1,7 +1,7 @@
 # Proyecto e-commerce
 
 <p align="center">
-  <a href="https://ibb.co/fHzxg2S"><img src="/assets/peke-shop.gif" alt="gif" border="0"></a>
+  <a href="https://ibb.co/fHzxg2S"><img src="/public/assets/peke-shop.gif" alt="gif" border="0"></a>
 </p>
 
 [Español](#ES) - [English](#EN)
